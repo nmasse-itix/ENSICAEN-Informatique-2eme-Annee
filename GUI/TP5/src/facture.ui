@@ -1,0 +1,546 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>Facture</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>FactureForm</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>970</width>
+            <height>725</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Form1</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QGroupBox" row="0" column="1">
+            <property name="name">
+                <cstring>groupBox3</cstring>
+            </property>
+            <property name="title">
+                <string>Aperçu facture</string>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="FactureView">
+                    <property name="name">
+                        <cstring>factureView</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>7</hsizetype>
+                            <vsizetype>7</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>360</width>
+                            <height>500</height>
+                        </size>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QFrame" row="0" column="0">
+            <property name="name">
+                <cstring>editionFrame</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>4</hsizetype>
+                    <vsizetype>5</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="frameShape">
+                <enum>NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Plain</enum>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>clientLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&lt;h1&gt;&lt;p align="center"&gt;Client&lt;/h1&gt;&lt;/p&gt;</string>
+                    </property>
+                </widget>
+                <widget class="QFrame">
+                    <property name="name">
+                        <cstring>frame11</cstring>
+                    </property>
+                    <property name="frameShape">
+                        <enum>NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                        <enum>Raised</enum>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLineEdit" row="0" column="3">
+                            <property name="name">
+                                <cstring>prenomEdit</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="0" column="2">
+                            <property name="name">
+                                <cstring>prenomLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Prénom&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="3" column="2">
+                            <property name="name">
+                                <cstring>villeLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Ville&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" row="0" column="1">
+                            <property name="name">
+                                <cstring>nomEdit</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" row="1" column="1" rowspan="1" colspan="3">
+                            <property name="name">
+                                <cstring>adresse1Edit</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" row="2" column="1" rowspan="1" colspan="3">
+                            <property name="name">
+                                <cstring>adresse2Edit</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" row="3" column="1">
+                            <property name="name">
+                                <cstring>cpEdit</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" row="3" column="3">
+                            <property name="name">
+                                <cstring>villeEdit</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="3" column="0">
+                            <property name="name">
+                                <cstring>cpLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;CP&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="2" column="0">
+                            <property name="name">
+                                <cstring>adresse2Label</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Adresse 2&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="1" column="0">
+                            <property name="name">
+                                <cstring>adresse1Label</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Adresse 1&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" row="0" column="0">
+                            <property name="name">
+                                <cstring>nomLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&lt;p align="right"&gt;Nom&lt;/p&gt;</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+                <widget class="Line">
+                    <property name="name">
+                        <cstring>ligneEntreClientEtArticles</cstring>
+                    </property>
+                    <property name="frameShape">
+                        <enum>HLine</enum>
+                    </property>
+                    <property name="frameShadow">
+                        <enum>Sunken</enum>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>articlesLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&lt;h1&gt;&lt;p align="center"&gt;Articles&lt;/p&gt;&lt;/h1&gt;</string>
+                    </property>
+                </widget>
+                <widget class="QTable">
+                    <column>
+                        <property name="text">
+                            <string>Code</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Désignation</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Quantité</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Unité HT</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Total HT</string>
+                        </property>
+                    </column>
+                    <property name="name">
+                        <cstring>factureTable</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>4</hsizetype>
+                            <vsizetype>7</vsizetype>
+                            <horstretch>1</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="resizePolicy">
+                        <enum>Default</enum>
+                    </property>
+                    <property name="numRows">
+                        <number>15</number>
+                    </property>
+                    <property name="numCols">
+                        <number>5</number>
+                    </property>
+                    <property name="selectionMode">
+                        <enum>SingleRow</enum>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </grid>
+</widget>
+<menubar>
+    <property name="name">
+        <cstring>MenuBar</cstring>
+    </property>
+    <item text="&amp;File" name="fileMenu">
+        <action name="fileNewAction"/>
+        <action name="fileOpenAction"/>
+        <action name="fileSaveAction"/>
+        <action name="fileSaveAsAction"/>
+        <separator/>
+        <action name="filePrintAction"/>
+        <separator/>
+        <action name="fileExitAction"/>
+    </item>
+    <item text="&amp;Edit" name="editMenu">
+        <action name="editClearAllAction"/>
+    </item>
+    <item text="&amp;Help" name="helpMenu">
+        <action name="helpAboutAction"/>
+    </item>
+</menubar>
+<toolbars>
+</toolbars>
+<customwidgets>
+    <customwidget>
+        <class>FactureView</class>
+        <header location="local">factureview.h</header>
+        <sizehint>
+            <width>-1</width>
+            <height>-1</height>
+        </sizehint>
+        <container>0</container>
+        <sizepolicy>
+            <hordata>5</hordata>
+            <verdata>5</verdata>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+        <pixmap>image0</pixmap>
+    </customwidget>
+</customwidgets>
+<actions>
+    <action>
+        <property name="name">
+            <cstring>fileNewAction</cstring>
+        </property>
+        <property name="text">
+            <string>New</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;New</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+N</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileOpenAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset></iconset>
+        </property>
+        <property name="text">
+            <string>Open</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Open...</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+O</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileSaveAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset></iconset>
+        </property>
+        <property name="text">
+            <string>Save</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Save</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+S</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileSaveAsAction</cstring>
+        </property>
+        <property name="text">
+            <string>Save As</string>
+        </property>
+        <property name="menuText">
+            <string>Save &amp;As...</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>filePrintAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset></iconset>
+        </property>
+        <property name="text">
+            <string>Print</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Print...</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+P</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileExitAction</cstring>
+        </property>
+        <property name="text">
+            <string>Exit</string>
+        </property>
+        <property name="menuText">
+            <string>E&amp;xit</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+Q</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>helpAboutAction</cstring>
+        </property>
+        <property name="text">
+            <string>About</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;About</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editClearAllAction</cstring>
+        </property>
+        <property name="text">
+            <string>Clear All</string>
+        </property>
+        <property name="menuText">
+            <string>Clear &amp;All</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+L</string>
+        </property>
+    </action>
+</actions>
+<images>
+    <image name="image0">
+        <data format="XBM.GZ" length="79">789c534e494dcbcc4b554829cdcdad8c2fcf4c29c95030e0524611cd48cd4ccf28010a1797249664262b2467241641a592324b8aa363156c15aab914146aadb90067111b1f</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>fileNewAction</sender>
+        <signal>activated()</signal>
+        <receiver>FactureForm</receiver>
+        <slot>fileNew()</slot>
+    </connection>
+    <connection>
+        <sender>fileOpenAction</sender>
+        <signal>activated()</signal>
+        <receiver>FactureForm</receiver>
+        <slot>fileOpen()</slot>
+    </connection>
+    <connection>
+        <sender>fileSaveAction</sender>
+        <signal>activated()</signal>
+        <receiver>FactureForm</receiver>
+        <slot>fileSave()</slot>
+    </connection>
+    <connection>
+        <sender>fileSaveAsAction</sender>
+        <signal>activated()</signal>
+        <receiver>FactureForm</receiver>
+        <slot>fileSaveAs()</slot>
+    </connection>
+    <connection>
+        <sender>filePrintAction</sender>
+        <signal>activated()</signal>
+        <receiver>FactureForm</receiver>
+        <slot>filePrint()</slot>
+    </connection>
+    <connection>
+        <sender>fileExitAction</sender>
+        <signal>activated()</signal>
+        <receiver>FactureForm</receiver>
+        <slot>fileExit()</slot>
+    </connection>
+    <connection>
+        <sender>helpAboutAction</sender>
+        <signal>activated()</signal>
+        <receiver>FactureForm</receiver>
+        <slot>helpAbout()</slot>
+    </connection>
+    <connection>
+        <sender>nomEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>FactureForm</receiver>
+        <slot>nomChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>prenomEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>FactureForm</receiver>
+        <slot>prenomChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>adresse1Edit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>FactureForm</receiver>
+        <slot>adresse1Changed(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>adresse2Edit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>FactureForm</receiver>
+        <slot>adresse2Changed(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>cpEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>FactureForm</receiver>
+        <slot>cpChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>villeEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>FactureForm</receiver>
+        <slot>villeChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>factureTable</sender>
+        <signal>valueChanged(int,int)</signal>
+        <receiver>FactureForm</receiver>
+        <slot>tableChanged(int,int)</slot>
+    </connection>
+    <connection>
+        <sender>editClearAllAction</sender>
+        <signal>activated()</signal>
+        <receiver>FactureForm</receiver>
+        <slot>editClearAll()</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>nomEdit</tabstop>
+    <tabstop>prenomEdit</tabstop>
+    <tabstop>adresse1Edit</tabstop>
+    <tabstop>adresse2Edit</tabstop>
+    <tabstop>cpEdit</tabstop>
+    <tabstop>villeEdit</tabstop>
+    <tabstop>factureTable</tabstop>
+</tabstops>
+<slots>
+    <slot>fileNew()</slot>
+    <slot>fileOpen()</slot>
+    <slot>fileSave()</slot>
+    <slot>fileSaveAs()</slot>
+    <slot>filePrint()</slot>
+    <slot>fileExit()</slot>
+    <slot>helpAbout()</slot>
+    <slot>editClearAll()</slot>
+    <slot access="protected">nomChanged(const QString &amp; s)</slot>
+    <slot access="protected">prenomChanged(const QString &amp; s)</slot>
+    <slot access="protected">adresse1Changed(const QString &amp; s)</slot>
+    <slot access="protected">adresse2Changed(const QString &amp; s)</slot>
+    <slot access="protected">cpChanged(const QString &amp; s)</slot>
+    <slot access="protected">villeChanged(const QString &amp; s)</slot>
+    <slot access="protected">tableChanged(int row, int col)</slot>
+</slots>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>factureview.h</includehint>
+</includehints>
+</UI>

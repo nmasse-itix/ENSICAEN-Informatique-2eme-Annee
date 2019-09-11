@@ -1,0 +1,40 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="F:\UP\TP3\ex2\"
+ProjectType=Executable
+CPUFamily=TMS320C67XX
+Tool="Compiler"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="D:\ti\c6000\dsk6713\lib\dsk6713bsl.lib"
+Source="EX2.C"
+Source="ex2.cdb"
+Source="ex2cfg.cmd"
+
+[Generated Files]
+Source="ex2cfg.s62"
+Source="ex2cfg_c.c"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr"F:\UP\TP3\ex2\Debug" -d"_DEBUG" -mv6700
+
+["Compiler" Settings: "Release"]
+Options=-q -o3 -fr"F:\UP\TP3\ex2\Release" -mv6700
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v6x
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v6x
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\ex2.map" -o".\Debug\ex2.out" -x
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\ex2.map" -o".\Release\ex2.out" -x
+

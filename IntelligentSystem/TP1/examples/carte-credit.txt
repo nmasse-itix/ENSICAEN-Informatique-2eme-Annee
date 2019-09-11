@@ -1,0 +1,18 @@
+(revenu promo-magazine promo-affiche assurance-vie sexe age assurance-carte-credit)
+
+((eleve		Oui	Non	Non	Homme	age-moyen 	Non)
+(moyen		Oui	Oui	Oui	Femme	age-moyen 	Non)
+(eleve		Non	Non	Non	Homme	age-moyen 	Non)
+(moyen		Oui	Oui	Oui	Homme	age-moyen 	Oui)
+(tres-eleve	Oui	Non	Oui	Femme	assez-jeune 	Non)
+(bas		Non	Non	Non	Femme	age-mur 	Non)
+(moyen		Oui	Non	Oui	Homme	assez-jeune 	Oui)
+(bas		Non	Oui	Non	Homme	jeune 		Non)
+(moyen		Oui	Non	Non	Homme	age-moyen 	Non)
+(moyen		Oui	Oui	Oui	Femme	age-moyen 	Non)
+(eleve		Non	Oui	Oui	Femme	age-moyen 	Non)
+(bas		Non	Oui	Oui	Homme	jeune 		Non)
+(tres-eleve	Oui	Oui	Oui	Femme	assez-jeune 	Non)
+(eleve		Non	Oui	Non	Homme	age-mur 	Non)
+(bas		Non	Non	Oui	Femme	jeune 		Oui))
+

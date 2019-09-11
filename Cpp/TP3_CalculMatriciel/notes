@@ -1,0 +1,23 @@
+Utilisation des Fonctions membres en tant qu'amies
+
+Les fonctions membres d'une classe sont implicitement "amies de la classe", ce
+qui implique qu'une fonction membre peut accéder aux variables d'instance de
+l'objet sur lequel elle est appelée, mais aussi le cas échéant, aux variables
+d'instance d'un objet de meme classe passé en parametre. Cette propriété est
+beaucoup utilisée dans notre implémentation de ce TP, notamment pour nous
+éviter l'écriture de nombreux accesseurs privés.
+
+Cependant cette propriété met à mal le concept d'encapsulation, car il permet
+à des objets d'accéder aux champs privés d'autres objets. Pour relativiser,
+nous argumenterons que le code violant l'encapsulation est interne à la classe
+"violée" et donc qu'il est écrit en tenant compte de l'implémentation de
+celle ci, pour en tirer le meilleur partis en terme d'efficacité. Ce souci
+d'efficacité est un élément important lors des choix d'implémentation, car
+l'utilisation, somme toute périlleuse et difficile du langage C++, n'est due
+qu'a la propriété de ce langage de permettre l'écriture d'applications très
+efficaces, avantage qu'il serait peu judicieux de perdre en s'encombrant de
+lourdeurs. Par ailleurs, l'avantage qu'a le respect de l'encapsulation à
+l'intérieur d'un classe est de pouvoir changer la représentation de données
+en ayant à réécrir qu'un minimum d'acceseurs. Or dans notre cas (TP3),
+le format des données en interne est fixé une fois pour toute, ce qui
+réduit considérablement l'interet induit par le respect de l'encapsulation.

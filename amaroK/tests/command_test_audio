@@ -1,0 +1,9 @@
+
+MP3
+mpg123-generic  -q -s ~/tmp/music/benny-benassy/Hypnotic/01-benny_benassi-satisfaction-mvp.mp3 |./sef | ./play 
+
+OGG-VORBIS
+oggdec  -R -Q -o - ~/tmp/music/daft_punk/discovery/Daft\ Punk\ -\ Discovery\ -\ 01\ -\ One\ more\ time.ogg |./sef | ./play 
+
+WAV
+

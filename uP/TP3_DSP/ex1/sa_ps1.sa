@@ -1,0 +1,69 @@
+*********************************************************************************
+* Origine du fichier l:\up\tp3\ex1\sa_ps1.sa  (rev. 16-02-2004)			*
+* Ce fichier est copié dans le répertoire (project) f:\up\tp3\ex1 		*
+* pour être complété. 		 						*
+*										*
+* BINOME :									*
+*********************************************************************************
+
+*   		Fonction sa_ps1() en assembleur linéaire 
+*		^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	
+* Cette fonction peut être appelée dans un programme C dans lequel on a déclaré
+* au début du fichier : extern int sa_ps1(short *,short *, int); 
+*
+* Exemple d'appel : y= sa_ps1(a, x, 256);
+* 
+* Consulter l'aide en ligne (cproc) pour savoir comment récupérer les paramètres et
+* faire le return de la procédure.
+*
+* POUR CE PROGRAMME :
+* ^^^^^^^^^^^^^^^^^^^
+* PROGRAMMATION EN ASSEMBLEUR LINÉAIRE EN UTILISANT DES INSTRUCTIONS LDW
+********************************************************************************* 
+
+	        .def	_sa_ps1
+NBPS		.equ	100	
+	
+_sa_ps1		.cproc	ot1, ot2, taille
+		.reg	nbre_ps
+		.reg	t1
+		.reg	t2
+		.reg	e1
+		.reg	e2
+		.reg	somme
+		.reg	sm1
+		.reg	sm2
+		.reg	s1
+		.reg	s2
+		.reg	elems
+		
+		mvk	NBPS,nbre_ps
+
+ps:		zero	somme
+		zero	sm1
+		zero	sm2
+		mv	taille, elems
+		mv	ot1, t1
+		mv	ot2, t2
+	
+loop:
+		sub	elems, 2, elems
+		
+		ldw	*t1++, e1
+		ldw	*t2++, e2
+		
+		mpy	e1, e2, s1
+		mpyh	e1, e2, s2
+		
+		add	s1, sm1, sm1
+		add	s2, sm2, sm2
+
+ [elems]	b 	loop
+		add	sm1, sm2, somme
+
+
+		sub	nbre_ps,1,nbre_ps
+ [nbre_ps]	b	ps
+ 
+		.return somme
+		.endproc

@@ -1,0 +1,9 @@
+# KDevelop Custom Project File List
+debug.c
+generator.c
+generator.h
+Makefile
+epc.h
+exemples/while.pas
+exemples/if.pas
+README

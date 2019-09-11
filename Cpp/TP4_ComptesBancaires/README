@@ -1,0 +1,1 @@
+On peut dire que le type compte n'est pas absolument polymorphe car ce n'est pas un type abstrait: toute les methodes ont une implémentation, de plus ele ne sont pas toute surchargées. Il y a donc une partie de l'implémentation qui est propre à la classe Compte, elle n'est donc pas absolument polymorphe

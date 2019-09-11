@@ -1,0 +1,47 @@
+--
+-- PostgreSQL database dump
+--
+
+SET client_encoding = 'SQL_ASCII';
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+
+
+--
+-- Data for Name: genre; Type: TABLE DATA; Schema: limin; Owner: limin
+--
+
+COPY genre (numg, nomg) FROM stdin;
+1	Drame
+2	Fantastique
+3	Epouvante
+4	Policier
+5	Comedie
+6	Aventure
+7	Horreur
+8	Etude de moeurs
+9	Espionnage
+10	Guerre
+11	Politique
+12	Psychologique
+13	Dessin anime
+14	Comedie musicale
+15	Peplum
+16	Drame historique
+17	Western
+18	Historique
+19	Thriller
+20	Chronique
+21	Musical
+22	Politique fiction
+0	Non renseigné
+23	Suspense
+24	Catastrophe
+\.
+
+
+--
+-- PostgreSQL database dump complete
+--
+

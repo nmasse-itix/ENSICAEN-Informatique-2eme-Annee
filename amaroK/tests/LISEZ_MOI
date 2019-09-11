@@ -1,0 +1,42 @@
+
+Vue d'ensemble
+
+sef est le programme qui calcule le tempo (affichage de sa
+valeur en battements par minute) et qui ajoute des marques
+sonores (clic) au son afin de situer les battements.
+
+sef prend en entrée du son au format pcm 16 bits signés,
+stéréo, échantilloné à 44100Hz
+
+de même pour play, qui se charge d'envoyer les données reçues
+sur son entrée standard vers la carte son.
+
+
+Compilation
+
+il y a 2 modules à compiler: sef et play
+make sef play
+
+les bibliothèques suivantes sont nécessaire:
+fftw3
+alsa
+
+
+Utilisation:
+
+mpg123  -q -s fichier.mp3 |./sef | ./play
+
+ou
+
+oggdec  -R -Q -o - fichier.ogg |./sef | ./play
+
+
+TODO
+
+améliorer le calcul de la SEF: ajout d'un filtre derivateur d'ordre
+8 ou 10 (préconisé par M Alonso) et ajout d'un filtre passe bas sur
+le résultat de la FFT (aussi préconisé par M Alonso).
+
+améliorer la stabilité du tempo calculé (problèmes d'instabilité)
+
+

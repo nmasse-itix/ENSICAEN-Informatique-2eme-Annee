@@ -1,0 +1,57 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="F:\UP\TP3\ex1\"
+ProjectType=Executable
+CPUFamily=TMS320C67XX
+Tool="Compiler"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Optimise"
+Config="Release"
+
+[Source Files]
+Source="ASM_PS0.ASM"
+Source="ASM_PS1.ASM"
+Source="ASM_PS2.ASM"
+Source="ASM_PS3.ASM"
+Source="ASM_PS4.ASM"
+Source="EX1.C"
+Source="ex1.cdb"
+Source="SA_PS0.SA"
+Source="SA_PS1.SA"
+Source="SA_PS2.SA"
+Source="ex1cfg.cmd"
+
+[Generated Files]
+Source="ex1cfg.s62"
+Source="ex1cfg_c.c"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr"F:\UP\TP3\ex1\Debug" -d"_DEBUG" -mv6700
+
+["Compiler" Settings: "Optimise"]
+Options=-gp -q -o3 -fr"F:\UP\TP3\ex1\Optimise" -mv6700
+
+["Compiler" Settings: "Release"]
+Options=-q -o3 -fr"F:\UP\TP3\ex1\Release" -mv6700
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v6x
+
+["DspBiosBuilder" Settings: "Optimise"]
+Options=-v6x
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v6x
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\ex1.map" -o".\Debug\ex1.out" -x
+
+["Linker" Settings: "Optimise"]
+Options=-q -c -m".\Optimise\ex1.map" -o".\Optimise\ex1.out" -x
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\ex1.map" -o".\Release\ex1.out" -x
+

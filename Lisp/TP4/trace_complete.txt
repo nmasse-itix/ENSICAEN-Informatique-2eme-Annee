@@ -1,0 +1,54 @@
+#<CONNEXION #x20489CDE>: valeur modifiée
+#<MUL #x2048A076>: attention une valeur !
+ETAT DES CNX: a = 2, b = NIL, c = NIL, d = NIL, e = NIL, f = NIL, g = NIL, h = NIL, i = NIL, j = NIL
+#<CONNEXION #x20489D56>: valeur modifiée
+#<MUL #x2048A076>: attention une valeur !
+#<MUL #x2048A076>: multiplication: je connais borne1 et borne2 
+#<CONNEXION #x20489DB6>: valeur modifiée
+#<MUL #x2048A66E>: attention une valeur !
+ETAT DES CNX: a = 2, b = 3, c = 6, d = NIL, e = NIL, f = NIL, g = NIL, h = NIL, i = NIL, j = NIL
+#<CONNEXION #x20489FC6>: valeur modifiée
+#<ADD #x2048A84E>: attention une valeur !
+ETAT DES CNX: a = 2, b = 3, c = 6, d = NIL, e = NIL, f = NIL, g = NIL, h = NIL, i = 3, j = NIL
+#<CONNEXION #x2048A026>: valeur modifiée
+#<MUL #x2048A6B6>: attention une valeur !
+ETAT DES CNX: a = 2, b = 3, c = 6, d = NIL, e = NIL, f = NIL, g = NIL, h = NIL, i = 3, j = 1
+#<CONNEXION #x20489F06>: valeur modifiée
+#<ADD #x2048A6FE>: attention une valeur !
+ETAT DES CNX: a = 2, b = 3, c = 6, d = NIL, e = NIL, f = NIL, g = 1, h = NIL, i = 3, j = 1
+#<CONNEXION #x20489EA6>: valeur modifiée
+#<ADD #x2048A6FE>: attention une valeur !
+#<ADD #x2048A6FE>: addition: je connais borne2 et borneS 
+#<CONNEXION #x20489E46>: valeur modifiée
+#<MUL #x2048A66E>: attention une valeur !
+#<MUL #x2048A66E>: multiplication: je connais borne1 et borne2 
+#<CONNEXION #x20489E16>: valeur modifiée
+#<ADD #x2048A84E>: attention une valeur !
+#<ADD #x2048A84E>: addition: je connais borne1 et borneS 
+#<CONNEXION #x20489F66>: valeur modifiée
+#<MUL #x2048A6B6>: attention une valeur !
+#<MUL #x2048A6B6>: multiplication: je connais borne1 et borne2 
+#<CONNEXION #x20489F66>: valeurs differentes, valeur non modifiée !
+#<CONNEXION #x20489F66>: INCOHERENCE DETECTEE !
+#<MUL #x2048A6B6>: attention une valeur !
+#<MUL #x2048A6B6>: multiplication: je connais borne1 et borne2 
+#<CONNEXION #x20489F66>: valeurs differentes, valeur non modifiée !
+#<CONNEXION #x20489F66>: INCOHERENCE DETECTEE !
+ETAT DES CNX: a = 2, b = 3, c = 6, d = NIL, e = NIL, f = NIL, g = 1, h = NIL, i = 3, j = 1
+#<CONNEXION #x20489EA6>: valeur modifiée
+#<ADD #x2048A6FE>: attention une valeur !
+#<ADD #x2048A6FE>: addition: je connais borne2 et borneS 
+#<CONNEXION #x20489E46>: valeur modifiée
+#<MUL #x2048A66E>: attention une valeur !
+#<MUL #x2048A66E>: multiplication: je connais borne1 et borne2 
+#<CONNEXION #x20489E16>: valeur modifiée
+#<ADD #x2048A84E>: attention une valeur !
+#<ADD #x2048A84E>: addition: je connais borne1 et borneS 
+#<CONNEXION #x20489F66>: valeur modifiée
+#<MUL #x2048A6B6>: attention une valeur !
+#<MUL #x2048A6B6>: multiplication: je connais borne1 et borne2 
+#<CONNEXION #x20489F66>: valeur non modifiée mais identique
+#<MUL #x2048A6B6>: attention une valeur !
+#<MUL #x2048A6B6>: multiplication: je connais borne1 et borne2 
+#<CONNEXION #x20489F66>: valeur non modifiée mais identique
+ETAT DES CNX: a = 2, b = 3, c = 6, d = 12/5, e = 2/5, f = 3/5, g = 1, h = 3/5, i = 3, j = 1

@@ -1,0 +1,61 @@
+=============================================================================
+ README                             ENSICAEN                           2006
+
+ MASSE Nicolas (2005-Groupe3-LIMIN) <nicolas27.masse@laposte.net>
+ LIMIN Thomas (2005-Groupe3-MASSE) <thomas.limin@laposte.net>
+
+ ENSICAEN
+ 6 Boulevard Marechal Juin
+ F-14050 Caen Cedex
+
+ Ce fichier est l'oeuvre d'eleves de l'ENSI de Caen. Il ne peut etre
+ reproduit, utilise ou modifie sans l'avis express de ses auteurs.
+=============================================================================
+
+
+
+Travail effectué :
+-----------------------------------------------------------
+ - Analyse lexicale
+ - Analyse syntaxique
+ - Génération de code à 3 adresses
+ - Makefiles
+ - Correction de bug dans la fonction trim
+ - Ajout de 2 fonctions dans generator.[hc]
+   + void init(struct t_code * s);
+   + char * getType(char * id);
+ - Test du programme avec les examples
+
+
+
+
+Reste à faire :
+-----------------------------------------------------------
+ - Vérification de type
+ - Tests intensifs
+
+
+
+
+Description des fichiers :
+-----------------------------------------------------------
+ epc.h                 : déclarations communes à tous les fichiers
+ debug.c               : programme de test, analyse lexicale seulement
+ main_parser.c         : le main du compilateur
+ parser.y              : fichier yacc
+ scanner.l             : fichier lex
+ exemples/*.pas        : fichiers exemples
+ generator.[ch]        : fonctions utilitaires
+ README                : ce fichier
+ Compilation.kdevelop  : projet KDevelop
+
+
+
+
+Fichiers générés :
+-----------------------------------------------------------
+ epc                : le compilateur
+ epc-debug          : le compilateur, avec affichage de l'analyse lexicale
+ debug              : programme de test, analyse lexicale seulement
+ exemples/*.c       : exemples compilés
+ parser.output      : généré par yacc, descriptif de la grammaire

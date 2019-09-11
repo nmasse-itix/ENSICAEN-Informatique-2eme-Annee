@@ -1,0 +1,17 @@
+
+
+
+
+Règle R4 déclenchable
+application de R4: ((BATEAU) (MOTEUR)) => BATEAU-A-MOTEUR: VRAI
+Règle R5 déclenchable
+application de R5: ((VOILES) (BATEAU-A-MOTEUR) (DE-CROISIERE)) => VOILIER-MIXTE: VRAI
+A votre avis l'attribut TROIS-COQUES est il "vrai" ou "faux" ou "?" => je ne sais pas ?
+A votre avis l'attribut DEUX-COQUES est il "vrai" ou "faux" ou "?" => je ne sais pas ?
+A votre avis l'attribut QUILLE est il "vrai" ou "faux" ou "?" => je ne sais pas ?
+A votre avis l'attribut LARGE est il "vrai" ou "faux" ou "?" => je ne sais pas ?
+A votre avis l'attribut VENTRU est il "vrai" ou "faux" ou "?" => je ne sais pas ?
+Règle R15 déclenchable
+application de R15: ((VOILIER-MIXTE) (VENTRU) (LARGE)) => FIFTY: VRAI
+la règle R15 a démontré un but
+RÉUSSITE: le but a été démontré

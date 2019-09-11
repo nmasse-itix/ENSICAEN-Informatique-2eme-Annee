@@ -1,0 +1,7 @@
+ETAT DES CNX: a = 2, b = NIL, c = NIL, d = NIL, e = NIL, f = NIL, g = NIL, h = NIL, i = NIL, j = NIL
+ETAT DES CNX: a = 2, b = 3, c = 6, d = NIL, e = NIL, f = NIL, g = NIL, h = NIL, i = NIL, j = NIL
+ETAT DES CNX: a = 2, b = 3, c = 6, d = NIL, e = NIL, f = NIL, g = NIL, h = NIL, i = 3, j = NIL
+ETAT DES CNX: a = 2, b = 3, c = 6, d = NIL, e = NIL, f = NIL, g = NIL, h = NIL, i = 3, j = 1
+ETAT DES CNX: a = 2, b = 3, c = 6, d = NIL, e = NIL, f = NIL, g = 1, h = NIL, i = 3, j = 1
+ETAT DES CNX: a = 2, b = 3, c = 6, d = NIL, e = NIL, f = NIL, g = 1, h = NIL, i = 3, j = 1
+ETAT DES CNX: a = 2, b = 3, c = 6, d = 12/5, e = 2/5, f = 3/5, g = 1, h = 3/5, i = 3, j = 1

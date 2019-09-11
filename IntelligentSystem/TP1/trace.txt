@@ -1,0 +1,187 @@
+>>> Example database : METEO-TP
+
+
+[Example METEO-TP: PLUVIEUX FRAICHE NORMALE VRAI DESAGREABLE ]
+[Example METEO-TP: PLUVIEUX FRAICHE NORMALE FAUX AGREABLE ]
+[Example METEO-TP: PLUVIEUX DOUCE NORMALE FAUX AGREABLE ]
+[Example METEO-TP: PLUVIEUX DOUCE FORTE VRAI DESAGREABLE ]
+[Example METEO-TP: PLUVIEUX DOUCE FORTE FAUX AGREABLE ]
+[Example METEO-TP: NUAGEUX FRAICHE NORMALE VRAI AGREABLE ]
+[Example METEO-TP: NUAGEUX DOUCE FORTE VRAI AGREABLE ]
+[Example METEO-TP: NUAGEUX CHAUDE NORMALE FAUX AGREABLE ]
+[Example METEO-TP: NUAGEUX CHAUDE FORTE FAUX AGREABLE ]
+[Example METEO-TP: ENSOLEILLE FRAICHE NORMALE FAUX AGREABLE ]
+[Example METEO-TP: ENSOLEILLE DOUCE NORMALE VRAI AGREABLE ]
+[Example METEO-TP: ENSOLEILLE DOUCE FORTE FAUX DESAGREABLE ]
+[Example METEO-TP: ENSOLEILLE CHAUDE FORTE VRAI DESAGREABLE ]
+[Example METEO-TP: ENSOLEILLE CHAUDE FORTE FAUX DESAGREABLE ]
+ >>> Decision tree : METEO-TP
+
+<attribute = ASPECT-CIEL, entropy = 0.69353616>
+<value = PLUVIEUX>
+<attribute = VENTEUX, entropy = 0>
+<value = VRAI>
+<decision = DESAGREABLE>
+<value = FAUX>
+<decision = AGREABLE>
+<value = NUAGEUX>
+<decision = AGREABLE>
+<value = ENSOLEILLE>
+<attribute = HUMIDITE, entropy = 0>
+<value = NORMALE>
+<decision = AGREABLE>
+<value = FORTE>
+<decision = DESAGREABLE>
+
+(ASPECT-CIEL
+ ((EQUAL :VAL-ATT "PLUVIEUX")
+  (VENTEUX ((EQUAL :VAL-ATT "VRAI") (DESAGREABLE))
+   ((EQUAL :VAL-ATT "FAUX") (AGREABLE))))
+ ((EQUAL :VAL-ATT "NUAGEUX") (AGREABLE))
+ ((EQUAL :VAL-ATT "ENSOLEILLE")
+  (HUMIDITE ((EQUAL :VAL-ATT "NORMALE") (AGREABLE))
+   ((EQUAL :VAL-ATT "FORTE") (DESAGREABLE))))) 
+
+>>> End of decision tree : METEO-TP
+
+>>> Queries : METEO-TP
+
+>>> The query : ((ASPECT-CIEL "PLUVIEUX") (VENTEUX "VRAI")) returned : DESAGREABLE
+>>> The query : ((ASPECT-CIEL "NUAGEUX")) returned : AGREABLE
+
+>>> End of queries : METEO-TP
+
+>>> Example database : CREDIT-CARD
+
+[Example CREDIT-CARD: BAS NON NON OUI FEMME JEUNE OUI ]
+[Example CREDIT-CARD: ELEVE NON OUI NON HOMME AGE-MUR NON ]
+[Example CREDIT-CARD: TRES-ELEVE OUI OUI OUI FEMME ASSEZ-JEUNE NON ]
+[Example CREDIT-CARD: BAS NON OUI OUI HOMME JEUNE NON ]
+[Example CREDIT-CARD: ELEVE NON OUI OUI FEMME AGE-MOYEN NON ]
+[Example CREDIT-CARD: MOYEN OUI OUI OUI FEMME AGE-MOYEN NON ]
+[Example CREDIT-CARD: MOYEN OUI NON NON HOMME AGE-MOYEN NON ]
+[Example CREDIT-CARD: BAS NON OUI NON HOMME JEUNE NON ]
+[Example CREDIT-CARD: MOYEN OUI NON OUI HOMME ASSEZ-JEUNE OUI ]
+[Example CREDIT-CARD: BAS NON NON NON FEMME AGE-MUR NON ]
+[Example CREDIT-CARD: TRES-ELEVE OUI NON OUI FEMME ASSEZ-JEUNE NON ]
+[Example CREDIT-CARD: MOYEN OUI OUI OUI HOMME AGE-MOYEN OUI ]
+[Example CREDIT-CARD: ELEVE NON NON NON HOMME AGE-MOYEN NON ]
+[Example CREDIT-CARD: MOYEN OUI OUI OUI FEMME AGE-MOYEN NON ]
+[Example CREDIT-CARD: ELEVE OUI NON NON HOMME AGE-MOYEN NON ]
+ 
+>>> Decision tree : CREDIT-CARD
+
+<attribute = REVENU, entropy = 0.539991>
+<value = BAS>
+<attribute = PROMO-AFFICHE, entropy = 0.5>
+<value = OUI>
+<decision = NON>
+<value = NON>
+<attribute = ASSURANCE-VIE, entropy = 0>
+<value = OUI>
+<decision = OUI>
+<value = NON>
+<decision = NON>
+<value = TRES-ELEVE>
+<decision = NON>
+<value = MOYEN>
+<attribute = SEXE, entropy = 0.5509775>
+<value = FEMME>
+<decision = NON>
+<value = HOMME>
+<attribute = ASSURANCE-VIE, entropy = 0>
+<value = OUI>
+<decision = OUI>
+<value = NON>
+<decision = NON>
+<value = ELEVE>
+<decision = NON>
+
+(REVENU
+ ((EQUAL :VAL-ATT "BAS")
+  (PROMO-AFFICHE ((EQUAL :VAL-ATT "OUI") (NON))
+   ((EQUAL :VAL-ATT "NON")
+    (ASSURANCE-VIE ((EQUAL :VAL-ATT "OUI") (OUI))
+     ((EQUAL :VAL-ATT "NON") (NON))))))
+ ((EQUAL :VAL-ATT "TRES-ELEVE") (NON))
+ ((EQUAL :VAL-ATT "MOYEN")
+  (SEXE ((EQUAL :VAL-ATT "FEMME") (NON))
+   ((EQUAL :VAL-ATT "HOMME")
+    (ASSURANCE-VIE ((EQUAL :VAL-ATT "OUI") (OUI))
+     ((EQUAL :VAL-ATT "NON") (NON))))))
+ ((EQUAL :VAL-ATT "ELEVE") (NON))) 
+
+>>> End of decision tree : CREDIT-CARD
+
+>>> Example database : BANK
+
+[Example BANK: MOYEN OUI FAIBLE OUI ]
+[Example BANK: ELEVE OUI IMPORTANT OUI ]
+[Example BANK: MOYEN OUI IMPORTANT NON ]
+[Example BANK: BAS OUI IMPORTANT NON ]
+[Example BANK: MOYEN NON FAIBLE NON ]
+[Example BANK: BAS NON FAIBLE NON ]
+[Example BANK: ELEVE NON FAIBLE NON ]
+[Example BANK: ELEVE NON IMPORTANT NON ]
+[Example BANK: MOYEN NON IMPORTANT NON ]
+[Example BANK: BAS NON IMPORTANT NON ]
+ 
+>>> Decision tree : BANK
+
+<attribute = PROPRIETAIRE, entropy = 0.4>
+<value = OUI>
+<attribute = REVENU, entropy = 0.5>
+<value = ELEVE>
+<decision = OUI>
+<value = MOYEN>
+<attribute = ENDETTEMENT, entropy = 0>
+<value = FAIBLE>
+<decision = OUI>
+<value = IMPORTANT>
+<decision = NON>
+<value = BAS>
+<decision = NON>
+<value = NON>
+<decision = NON>
+
+(PROPRIETAIRE
+ ((EQUAL :VAL-ATT "OUI")
+  (REVENU ((EQUAL :VAL-ATT "ELEVE") (OUI))
+   ((EQUAL :VAL-ATT "MOYEN")
+    (ENDETTEMENT ((EQUAL :VAL-ATT "FAIBLE") (OUI))
+     ((EQUAL :VAL-ATT "IMPORTANT") (NON))))
+   ((EQUAL :VAL-ATT "BAS") (NON))))
+ ((EQUAL :VAL-ATT "NON") (NON))) 
+
+>>> End of decision tree : BANK
+
+>>> Le client dont les preferences sont : 
+((AGE 25) (PREFERENCE "sport"))
+>>> decide d'aller a :
+ALPES
+
+>>> Le client dont les preferences sont : 
+((AGE 35) (PREFERENCE "detente") (BUDGET 9000))
+>>> decide d'aller a :
+ESPAGNE
+
+>>> Le client dont les preferences sont : 
+((AGE 35) (PREFERENCE "detente") (BUDGET 20000))
+>>> decide d'aller a :
+ANTILLES
+
+>>> Le client dont les preferences sont : 
+((AGE 35) (PREFERENCE "detente") (BUDGET 20001))
+>>> decide d'aller a :
+SEYCHELLES
+
+>>> Le client dont les preferences sont : 
+((AGE 23) (PREFERENCE "culture") (BUDGET 9000))
+>>> decide d'aller a :
+MEXIQUE
+
+>>> Le client dont les preferences sont : 
+((AGE 42) (PREFERENCE "culture") (BUDGET 9000))
+>>> decide d'aller a :
+EGYPTE
+

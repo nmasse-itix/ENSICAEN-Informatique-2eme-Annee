@@ -1,0 +1,14 @@
+Construction d'une base de règle
+
+Tarification du transport
+
+si (age > 60 et retraite) alors carte-vermeil
+si (nb-enfant > 5) alors reduction-famille-nombreuse
+si (poids-chat < 10 et griffe-limée) alors chat-special
+si (carte-vermeil et chat-special) alors chat-demi-tarif
+si (age < 10 et ) alors gratuité
+si (famille-nombreuse et periode-scolaire) alors reduction-vacances
+si (age < 26 et age >= 10 et carte-jeune) alors tarif-bleu
+si (tarif-bleu et trajet > 100) alors rafraichissement-offert
+
+etc...

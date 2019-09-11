@@ -1,0 +1,218 @@
+
+
+                       Réponses aux questions posées
+
+
+
+1.2 - Effectivement, et heureusement, selon toute attente, le compilateur 
+détecte un eerreur et refuse la compilation lorsque l'on essaie d'atteindre
+un champ privé à partir d'une fonction non membre:
+
+complex.h: Dans function « Complex minus(const Complex&, const Complex&) »:
+complex.h:115: error: `double Complex::_re' is private
+
+
+1.4 - Il est difficile d'ajouter un Constructeur prenant pour argument le 
+module et l'argument, ce constructeur aurait la meme "signature" que celui 
+prenant comme argument la partie reelle et la partie imaginaire. En effet 
+ces quatres parametres seraient vraisemblablement des doubles, et lors de la
+compilation, le compilateur ne pourrait determiner, a l'aide du type des 
+arguments, quel constructeur était souhaité.
+
+
+
+
+3.1 - Nous avons cree une methode normalize dont le prototype est le suivant :
+
+               Complex normalize(Complex cpx);
+
+Comme le parametre cpx est passe par valeur, il est necessaire d'en effectuer
+une copie sur la pile d'ou l'appel au constructeur de recopie avant l'appel à
+la fonction. On peut noter que la copie est detruite lorsque la fonction se 
+termine. 
+
+Ainsi pour le code suivant :
+
+  Complex c;
+  
+  [...]
+  
+  std::cout << "Normalisation" << std::endl;
+  c = normalize(a);
+  std::cout << std::endl;
+  std::cout << "Fin de la normalisation" << std::endl;
+
+On obtient la trace suivante :
+
+(1)  +++Complex[0xbfd23db0](0, 0)
+(2)  Normalisation
+(3)  rrrComplex[0xbfd23d90](1 + i * 1)
+(4)  La normalisation a commence
+(5)  +++Complex[0xbfd23da0](0.707107, 0.707107)
+(6)  ===Complex[0xbfd23da0](0.707107 + i * 0.707107) >> [0xbfd23db0](0 + i * 0)
+(7)  ---Complex[0xbfd23da0](0.707107 + i * 0.707107)
+(8)  ---Complex[0xbfd23d90](1 + i * 1)
+(9)  Fin de la normalisation
+(10)  ---Complex[0xbfd23db0](0.707107 + i * 0.707107)
+
+Etude de la trace d'execution :
+  1 - Declaration du complexe "c", et appel du constructeur par defaut.
+  2 - Avant appel a la fonction de normalisation.
+  3 - Appel du constructeur de recopie pour passer le complexe sur la pile.
+  4 - Dans la fonction de normalisation
+  5 - Creation d'un nouveau complexe local
+  6 - Affectation de la valeur de retour (complexe local)
+      dans la variable c (appartenant à l'appelant)
+  7 - Destruction du complexe local
+  8 - Destruction du complexe parametre
+  9 - Fonction de normalisation terminee
+  10 - Destruction du complexe "c"
+
+  => Remarque :
+
+    On remarque qu'un appel au constructeur de recopie est effectue pour passer
+    le parametre sur la pile (initialisation d'une zone mémoire "brute"), mais
+    que c'est l'opérateur d'affectation qui est utilisé pour recopier la valeur
+    de retour (écrasement d'une zone mémoire déjà initialisée)
+
+
+
+
+3.2 - Nous avons ajoute une methode dont le prototype est le suivant :
+
+          Complex Complex::rotate(Complex & c, double angle) const;
+
+Ainsi, pour le code suivant :
+
+  std::cout << "Rotation" << std::endl;
+  c = b.rotate(a, M_PI / 2);
+  c.writeTo(std::cout);
+  std::cout << std::endl;
+  std::cout << "Fin de la rotation" << std::endl;
+
+et la methode suivante :
+
+  Complex Complex::rotate(Complex & c, double angle) const {
+    Complex tmp = (*this) - c;
+    Complex tmp2 = tmp * Complex(cos(angle), sin(angle));
+    return tmp2 + c;
+  }
+
+On obtient la trace d'execution suivante :
+
+(1)  +++Complex[0xbfd5ef00](0, 0)
+(2)  Rotation
+(3)  +++Complex[0xbfd5ee80](2, 3)
+(4)  +++Complex[0xbfd5ee60](6.12303e-17, 1)
+(5)  +++Complex[0xbfd5ee70](-3, 2)
+(6)  ---Complex[0xbfd5ee60](6.12303e-17 + i * 1)
+(7)  +++Complex[0xbfd5eee0](-2, 3)
+(8)  ---Complex[0xbfd5ee70](-3 + i * 2)
+(9)  ---Complex[0xbfd5ee80](2 + i * 3)
+(10)  ===Complex[0xbfd5eee0](-2 + i * 3) >> [0xbfd5ef00](0.707107 + i * 0.707107)
+(11)  ---Complex[0xbfd5eee0](-2 + i * 3)
+(12)  Fin de la rotation
+(13)  ---Complex[0xbfd5ef00](-2 + i * 3)
+
+Etude de la trace d'execution :
+  1 - Declaration du complexe "c", et appel du constructeur par defaut.
+  2 - Avant appel a la methode de rotation.
+  3 - Creation et initialisation de l'objet tmp
+  4 - Creation et initialisation du complexe Complex(cos(angle), sin(angle))
+  5 - Creation et initialisation de tmp2
+  6 - Destruction de Complex(cos(angle), sin(angle))
+  7 - Creation et initialisation de tmp2 + c
+  8 - Destruction de tmp2
+  9 - Destruction de tmp
+  10 - Recopie de la valeur de retour (tmp2 + c) dans "c"
+  11 - Destruction de la valeur de retour
+  12 - Apres appel a la methode de rotation.
+  13 - Destruction de "c"
+
+  => Remarque :
+    On remarque que lors d'un passage d'arguments par référence, le 
+    constructeur par recopie n'est pas appellé, d'ou un gain de performance.
+    Il ne faut cependant pas oublier que l'objet passé par référence est 
+    modifiable pas la méthode appellée, c'est pourquoi l'utilisation du mot
+    clé "const", lorsque cela est possible, est recommandée.
+
+
+
+
+3.3 - Nous avons defini une fonction dont le prototype est le suivant :
+
+           Complex & getMax(Complex & c1, Complex & c2)
+
+et nous avons obtenu les resultats suivants :
+
+     Debut de 'Complex d = getMax(a, b)'
+(1)  rrrComplex[0xbfed1af0](3 + i * 4)
+     Fin de 'Complex d = getMax(a, b)'
+
+     Debut de 'c = getMax(a, b)'
+(2)  ===Complex[0xbfed1b20](3 + i * 4) >> [0xbfed1b10](-2 + i * 3)
+     Fin de 'c = getMax(a, b)'
+
+On remarque que :
+  1 - Lors d'une initialisation à partir du résultat de la fonction, 
+      c'est le constructeur par recopie qui est utilisé.
+  2 - Lors d'une affectation, c'est la méthode qui surcharge l'opérateur 
+      d'affectation qui est appellée.
+
+
+
+3.4 - Comme l'énoncé n'est pas très clair, nous avons choisi de remplir le 
+tableau selon la méthode suivante :
+
+                       tab[i] = Complex(i, 0);
+
+On obtient la trace d'exécution suivante :
+
+        Debut de l'initialisation du tableau (taille 10)
+ (1)    +++Complex[0xbf80c330](0, 0)
+        +++Complex[0xbf80c340](0, 0)
+        +++Complex[0xbf80c350](0, 0)
+        +++Complex[0xbf80c360](0, 0)
+        +++Complex[0xbf80c370](0, 0)
+        +++Complex[0xbf80c380](0, 0)
+        +++Complex[0xbf80c390](0, 0)
+        +++Complex[0xbf80c3a0](0, 0)
+        +++Complex[0xbf80c3b0](0, 0)
+ (10)   +++Complex[0xbf80c3c0](0, 0)
+        Fin de l'initialisation du tableau
+
+        Appel de la fonction remplirTableau(3, tab)
+ (11)   +++Complex[0xbf80c2b0](0, 0)
+ (12)   ===Complex[0xbf80c2b0](0 + i * 0) >> [0xbf80c330](0 + i * 0)
+ (13)   ---Complex[0xbf80c2b0](0 + i * 0)
+        +++Complex[0xbf80c2b0](1, 0)
+        ===Complex[0xbf80c2b0](1 + i * 0) >> [0xbf80c340](0 + i * 0)
+        ---Complex[0xbf80c2b0](1 + i * 0)
+        +++Complex[0xbf80c2b0](2, 0)
+        ===Complex[0xbf80c2b0](2 + i * 0) >> [0xbf80c350](0 + i * 0)
+        ---Complex[0xbf80c2b0](2 + i * 0)
+        Fin de l'appel
+
+ (14)   ---Complex[0xbf80c3c0](0 + i * 0)
+        ---Complex[0xbf80c3b0](0 + i * 0)
+        ---Complex[0xbf80c3a0](0 + i * 0)
+        ---Complex[0xbf80c390](0 + i * 0)
+        ---Complex[0xbf80c380](0 + i * 0)
+        ---Complex[0xbf80c370](0 + i * 0)
+        ---Complex[0xbf80c360](0 + i * 0)
+        ---Complex[0xbf80c350](2 + i * 0)
+        ---Complex[0xbf80c340](1 + i * 0)
+ (24)   ---Complex[0xbf80c330](0 + i * 0)
+
+
+Remarques :
+ 1-10  - Chaque element du tableau est initialisé par le constructeur par 
+         defaut.
+
+ 11    - Un objet temporaire est cree.
+ 12    - Cet objet est affecté a la case courante du tableau.
+ 13    - L'objet temporaire est detruit.
+
+ 14-24 - Chaque element du tableau est passé au destructeur.
+
+

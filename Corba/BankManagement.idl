@@ -1,0 +1,32 @@
+/*
+ * #(@)BankManagement.idl                ENSICAEN                     2005
+ *
+ * ENSICAEN
+ * 6 Boulevard Marechal Juin
+ * F-14050 Caen Cedex
+ *
+ * Ce fichier est l'oeuvre d'eleves de l'ENSI de Caen. Il ne peut etre
+ * reproduit, utilise ou modifie sans l'avis express de ses auteurs.
+ */
+
+
+module BankManagement {
+  exception no_such_account { };
+
+  interface Account {
+    void deposit(in long amount);
+    void withdraw(in long amount);
+    long balance();
+    string operations();
+    string getUsername();
+  };
+
+  interface Bank {
+    long create(in long sessionID);
+    Account getAccount(in long acc_num, in long sessionID) raises (no_such_account);
+    long connect(in string login, in string password);
+    void disconnect(in long sessionID);
+    void del(in long acc_num, in long sessionID);
+  };
+};
+

@@ -1,0 +1,9 @@
+Decompresser l'archive de tomcat : unzip ~/downloads/jakarta-tomcat-5.5.9.zip
+Aller dans le repertoire de tomcat : cd jakarta-tomcat-5.5.9
+Corriger les permissions : chmod a+x bin/*.sh
+Lancer tomcat : sh bin/startup.sh
+Verifier que tomcat est lance en allant a l'adresse : http://localhost:8080/
+Creer un repertoire tp3 dans webapps : cp -r webapps/servlets-examples webapps/tp3
+
+Compiler avec : -cp $CATALINA_HOME/common/lib/servlet-api.jar
+

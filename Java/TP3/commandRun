@@ -1,0 +1,1 @@
+java -Djdbc.drivers=org.postgresql.Driver -Dcinema.db-url="jdbc:postgresql://localhost/cinema?user=limint&password=vilest" -cp ./CineJava/build/classes:/opt/netbeans-5.0beta/ide6/modules/ext/swing-layout-0.7.jar:/home/limint/Downloads/postgresql-8.1-404.jdbc3.jar cinejava.Main

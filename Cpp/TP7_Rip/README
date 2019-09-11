@@ -1,0 +1,14 @@
+Installation:
+
+./configure
+make
+
+Remarque:
+
+Afin de privilégier une conception orientée objet, la classe Host diffère légèrement de la classe Host demandée: les concepts des tables de routages et d'entrée de table de routage ayant été implémenté dans des classes séparées.
+
+De plus, nous avons préféré nous abstenir d'utiliser la méthode de diffusion de tables pour la recherche de routes, préférant une méthode "incrémentale" de résolution, qui n'implique que les voisins immédiats, puis au besoins les voisins des voisins etc... Nous pensons que cette méthode est plus efficace car elle n'engendre pas un échange de tables généralisé qui pourrait engorger le réseau.
+
+Afin de coller au plus près à la réalité, nous avons simulé les envoi simultané de message en confiant à la classe Network le soin de gérer une file des messages RIP devant être envoyés, ce qui permet, lors de la mise à jour des tables de routages, un parcours du graphe qui s'apparente plus à un parcours en largeur ("diffusion concentrique de message") qu'à un parcours en profondeur, trop éloigné du fonctionnement d'un algorithme répartis
+
+Comme on peut le constater en executant le programme (./src/tp7) cela ne nuit en rien à son fonctionnement
